@@ -124,10 +124,5 @@ This is a personal project currently developed solo. Contributions, suggestions,
 
 ---
 
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
-
----
 
 > *"Sometimes you gotta run before you can walk."* — Tony Stark
