@@ -1,0 +1,85 @@
+# ─────────────────────────────────────────────────────────────
+# Jarvis Agent — Default Configuration
+# ─────────────────────────────────────────────────────────────
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  frame_size: 512
+  buffer_seconds: 30.0
+  pre_roll_ms: 800             # Extra pre-roll to avoid first-word truncation
+  max_speech_ms: 30000
+  min_speech_ms: 500           # Minimum speech before end-of-speech allowed
+  silence_timeout_ms: 700      # Faster end-of-speech detection
+  speech_threshold: 0.25       # Conservative VAD threshold
+  wake_word: "jarvis"
+  target_peak: 0.8             # Dynamic peak normalization target
+  noise_floor: 50              # int16 values below this = silence
+
+stt:
+  model_size: "medium.en"
+  fallback_model: "small.en"
+  device: "cuda"               # GPU acceleration
+  compute_type: "int8_float16"
+  beam_size: 5
+  language: "en"
+  no_speech_threshold: 0.6
+  log_prob_threshold: -1.0
+  compression_ratio_threshold: 2.4
+  confidence_fallback_threshold: 0.4
+  min_confidence: 0.35         # Below this, discard transcript
+  max_retries: 1               # Retry recording on low confidence
+
+tts:
+  model_path: ""              # Path to Piper .onnx model (leave empty for pyttsx3 fallback)
+  sample_rate: 22050
+  speaker_id: 0
+  sentence_silence: 0.2
+
+llm:
+  base_url: "http://localhost:11434"
+  model: "llama3.2:3b"
+  temperature: 0.1
+  num_predict: 256             # Short responses for voice commands
+  num_ctx: 1024                 # Smaller context for speed
+  num_gpu: 99
+  timeout_seconds: 60
+
+memory:
+  persist_dir: "data/chromadb"
+  embedding_model: "all-MiniLM-L6-v2"
+  max_entries: 10000
+  relevance_threshold: 0.75
+  max_context_entries: 5
+  max_context_tokens: 1500
+
+execution:
+  allowed_roots:
+    - "~/Desktop"
+    - "~/Documents"
+    - "~/Downloads"
+  max_recursive_depth: 5
+  max_file_count: 100
+  max_file_size_mb: 50
+  browser_user_data_dir: "data/browser_profile"
+  browser_timeout_ms: 30000
+  sandbox_timeout_seconds: 30
+  sandbox_memory_limit: "256m"
+  sandbox_cpu_limit: 1.0
+
+safety:
+  confirmation_timeout_seconds: 15.0
+  max_plan_iterations: 15
+  max_retries_per_step: 3
+  safe_mode_on_degraded: true
+  run_red_team_on_startup: true
+
+observability:
+  log_dir: "logs"
+  log_file: "jarvis.jsonl"
+  risk_audit_file: "risk_audit.jsonl"
+  trace_dir: "logs/traces"
+  checkpoint_file: "state/checkpoint.json"
+  checkpoint_interval_seconds: 30
+
+debug: true

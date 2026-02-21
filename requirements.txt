@@ -1,0 +1,51 @@
+# ═══════════════════════════════════════════════════════════════
+# Jarvis Agent — Core Dependencies (required)
+# ═══════════════════════════════════════════════════════════════
+
+# LLM interface
+ollama==0.4.7
+
+# Audio I/O
+sounddevice==0.5.1
+numpy==2.2.3
+
+# System utilities
+psutil==6.1.1
+send2trash==1.8.3
+mss==9.0.2
+
+# Async and networking
+aiohttp==3.11.13
+
+# Config
+pyyaml>=6.0
+
+# Fallback TTS
+pyttsx3>=2.90
+
+# ═══════════════════════════════════════════════════════════════
+# Optional — install individually when needed
+# ═══════════════════════════════════════════════════════════════
+
+# Speech-to-text (requires model download on first use)
+# pip install faster-whisper==1.1.0
+
+# Wake word detection
+# pip install openwakeword==0.6.0
+
+# Browser automation (after install: playwright install chromium)
+# pip install playwright==1.50.0
+
+# Vector memory (requires C++ build tools on Windows)
+# pip install chromadb==0.6.3 sentence-transformers==3.4.1
+
+# Piper TTS (requires Python <3.12)
+# pip install piper-tts==1.2.0
+
+# External tools (install via system package manager)
+# choco install ripgrep  OR  winget install BurntSushi.ripgrep
+# Docker Desktop: https://docs.docker.com/desktop/install/windows-install/
+
+# Ollama (must be running separately)
+# https://ollama.com/download
+# ollama pull llama3.1:8b-instruct-q4_K_M

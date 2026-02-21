@@ -1,0 +1,77 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─── Build / Distribution ────────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+
+# ─── Testing & Coverage ──────────────────────────────────────────────────────
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.coveragerc
+
+# ─── Environment / Secrets ───────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+logs/
+*.log
+*.jsonl
+
+# ─── Runtime State ───────────────────────────────────────────────────────────
+state/
+
+# ─── Data Directories (generated at runtime) ─────────────────────────────────
+data/screenshots/
+data/state/
+data/behavior_db/
+data/browser_profile/
+data/chromadb/
+
+# ─── Databases ───────────────────────────────────────────────────────────────
+*.db
+*.sqlite3
+
+# ─── Audio Diagnostics ───────────────────────────────────────────────────────
+diag_*.wav
+*.wav
+
+# ─── Browser / Playwright ────────────────────────────────────────────────────
+playwright-report/
+test-results/
+
+# ─── IDE ─────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ─── OS ──────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Temporary ───────────────────────────────────────────────────────────────
+*.tmp
+*.bak
+*.orig
